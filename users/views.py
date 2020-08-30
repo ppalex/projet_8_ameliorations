@@ -7,6 +7,8 @@ from django.views import View
 
 from .forms import CustomUserCreationForm
 
+from django.contrib.auth import logout
+
 
 class RegisterView(View):
     """This class displays the register view.
@@ -60,5 +62,12 @@ class ProfileView(View):
     template_name = 'users/profile.html'
 
     def get(self, request):
-
         return render(request, self.template_name)
+
+
+def custom_logout(request):
+    # message user or whatever
+    logout(request)
+    messages.success(request, "Vous avez été déconnecté")
+
+    return redirect('home')

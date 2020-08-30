@@ -8,7 +8,7 @@ from django.urls import path, re_path
 
 from core.views import index, legal_notice
 from users.views import (RegisterView, ProfileView,
-                         CustomLoginView, CustomLogoutView)
+                         CustomLoginView, CustomLogoutView, custom_logout)
 
 
 urlpatterns = [
@@ -17,7 +17,7 @@ urlpatterns = [
     path('legal_notice/', legal_notice, name="legal_notice"),
     path('login/', CustomLoginView.as_view(template_name='users/login.html'),
          name='login'),
-    path('logout/', CustomLogoutView.as_view(), name='logout'),
+    path('logout/', custom_logout, name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
     path('profile/', ProfileView.as_view(), name='profile'),
     re_path('^substitute/$', SubstituteView.as_view(), name='substitute'),

@@ -13,3 +13,12 @@ class IndexViewTest(TestCase):
         response = self.client.get(reverse('index'))
 
         self.assertEqual(response.status_code, 200)
+
+
+class LogoutViewTest(TestCase):
+
+    def test_logout_redirection_page(self):
+        response = self.client.get('/logout/')
+        self.assertRedirects(response, '/', status_code=302,
+                             target_status_code=200,
+                             fetch_redirect_response=True)
