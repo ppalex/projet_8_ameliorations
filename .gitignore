@@ -12,3 +12,5 @@ staticfiles/
 dist/
 build/
 *.egg-info/
+
+config/settings/production.py
