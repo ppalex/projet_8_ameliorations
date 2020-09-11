@@ -14,7 +14,7 @@ before_script:
   - echo $PATH
   - pip install -r requirements.txt
   - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python2.7.12/bin/
+  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python3.6.7/bin/
   - export CHROME_BIN=chromium-browser
 
 env: DJANGO_SETTINGS_MODULE=config.settings.travis
