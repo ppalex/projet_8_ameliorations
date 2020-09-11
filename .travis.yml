@@ -11,6 +11,7 @@ services:
   - postgresql
 
 script:
+  - python manage.py collectstatics
   - python manage.py test
 
 branches:
