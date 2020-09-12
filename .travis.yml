@@ -4,19 +4,13 @@ python:
   - '3.6'
 
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  chrome: stable
+  
 
 before_script:
-  - echo $PATH
   - pip install -r requirements.txt
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  - sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - apt-get update
-  - apt-get install google-chrome-stable
+  - install-webdrivers
+ 
   
 env: DJANGO_SETTINGS_MODULE=config.settings.travis
 
