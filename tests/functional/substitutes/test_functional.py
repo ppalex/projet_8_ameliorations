@@ -90,6 +90,9 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
         self.driver.find_element_by_id('id_search').send_keys('product_name_1')
         self.driver.find_element_by_id('id_search').send_keys(Keys.RETURN)
 
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, 'save_substitute_2')))
+
         save_button = self.driver.find_element_by_id('save_substitute_2')
 
         save_button.click()
