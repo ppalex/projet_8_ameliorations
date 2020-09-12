@@ -6,6 +6,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 from django.urls import reverse
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 
 chrome_options = webdriver.ChromeOptions()
@@ -74,6 +77,9 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
 
         url = self.live_server_url + \
             ("%s?" % reverse('product', kwargs={'barcode': 2}))
+
+        WebDriverWait(self.driver, 5).until(
+            EC.elementToBeClickable(By.id("detail_product_2")))
 
         detail_button = self.driver.find_element_by_id('detail_product_2')
 
