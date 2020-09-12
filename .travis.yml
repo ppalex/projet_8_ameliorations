@@ -13,11 +13,7 @@ addons:
 before_script:
   - echo $PATH
   - pip install -r requirements.txt
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  - sudo sh -c 'echo "deb https://dl.google.com/linux/direct/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - sudo apt-get update
-  - sudo apt-get install google-chrome-stable
-  
+  - apt-get install chromium-browser
 env: DJANGO_SETTINGS_MODULE=config.settings.travis
 
 services:
