@@ -58,6 +58,8 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
 
     def connect_user(self):
         self.driver.get(self.live_server_url)
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, 'id_login')))
         self.driver.find_element_by_id('id_login').click()
 
         self.driver.find_element_by_id('id_username').send_keys(
