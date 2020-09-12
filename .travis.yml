@@ -4,18 +4,14 @@ python:
   - '3.6'
 
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  chrome: stable
 
 before_script:
   - echo $PATH
   - pip install -r requirements.txt
   - sudo apt-get install chromium-browser
 
-  
+
 env: DJANGO_SETTINGS_MODULE=config.settings.travis
 
 services:
