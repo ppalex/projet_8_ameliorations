@@ -8,5 +8,8 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
+        'TEST': {
+            'NAME': 'mytestdatabase',
+        }
     },
 }
