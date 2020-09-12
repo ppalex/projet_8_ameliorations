@@ -24,7 +24,7 @@ services:
 
 script:
   - python manage.py collectstatic 
-  - python manage.py test
+  - python manage.py test --verbosity 2
 
 branches:
 only:
