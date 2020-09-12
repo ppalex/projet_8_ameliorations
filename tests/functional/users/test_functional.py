@@ -60,6 +60,9 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
         self.driver.find_element_by_id('id_email').send_keys(
             'testuser1_updated@gmail.com')
 
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, 'update_button_id')))
+
         update_button = self.driver.find_element_by_id('update_button_id')
 
         update_button.click()
