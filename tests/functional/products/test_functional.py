@@ -78,7 +78,7 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
         url = self.live_server_url + \
             ("%s?" % reverse('product', kwargs={'barcode': 2}))
 
-        WebDriverWait(self.driver, 5).until(
+        WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.ID, 'detail_product_2')))
 
         detail_button = self.driver.find_element_by_id('detail_product_2')

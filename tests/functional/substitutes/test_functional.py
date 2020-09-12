@@ -104,7 +104,7 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
         self.driver.find_element_by_id(
             'id_search').send_keys(Keys.DOWN + Keys.RETURN)
 
-        WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(
             (By.XPATH,
              '//h1[@class="text-uppercase text-black font-weight-bold"]')))
 

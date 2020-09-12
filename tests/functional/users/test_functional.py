@@ -64,7 +64,7 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
 
         update_button.click()
 
-        user = User.objects.get(user_id='1')
+        user = User.objects.get(username='testuser1')
 
         self.assertEqual(user.username, 'testuser1_updated')
         self.assertEqual(user.email, 'testuser1_updated@gmail.com')
