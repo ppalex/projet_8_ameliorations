@@ -58,6 +58,8 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
 
     def connect_user(self):
         self.driver.get(self.live_server_url)
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, 'id_login')))
         self.driver.find_element_by_id('id_login').click()
 
         self.driver.find_element_by_id('id_username').send_keys(
@@ -75,6 +77,9 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
         add_url = self.live_server_url + \
             ("%s?product=product_name_1" % reverse('substitute'))
 
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, 'id_search')))
+
         self.driver.find_element_by_id('id_search').send_keys('product_name_1')
         self.driver.find_element_by_id('id_search').send_keys(Keys.RETURN)
 
@@ -86,6 +91,9 @@ class ChromeFunctionalTestCases(StaticLiveServerTestCase):
 
         self.driver.find_element_by_id('id_search').send_keys('product_name_1')
         self.driver.find_element_by_id('id_search').send_keys(Keys.RETURN)
+
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, 'save_substitute_2')))
 
         save_button = self.driver.find_element_by_id('save_substitute_2')
 
